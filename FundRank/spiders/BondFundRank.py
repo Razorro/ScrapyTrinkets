@@ -108,6 +108,7 @@ class BondFundRankSpider(scrapy.Spider):
                 flatten_list.append((name, detail[0], detail[1]))
 
             flatten_list.sort(key=lambda elem: elem[2], reverse=True)
+            flatten_list = flatten_list[:10]
 
             with open('加权得分_{}.txt'.format(response.meta['period']), 'w', encoding='utf-8') as f:
                 for e in flatten_list:
